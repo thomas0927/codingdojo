@@ -1,19 +1,23 @@
-# 第一阶段
-## 需求拆解
-1. 输入为： -l -p 8080 -d /usr/logs 
-1. 获取到参数有： l p d
-1. 获取的参数值： true  8080  /usr/logs
-1. 参数类型：l是Boolean，p是Integer，d是String
-1. 参数默认值:l默认为false，p默认为0，d默认为“”
-1. 这里有特殊处理：p和d不传或者传参数不传值都取默认值
---------
-1. 重构提取参数Argument,
-格式：参数1:类型1:默认值1;参数2:类型2:默认值2，
-例如：l:bool:false;p:int:0;d:string:
+# Args
+## 问题描述
+1. arguments 可以被处理成flags和values。
+1. flags 是单个Character构成，并且前面应该有个-标识。
+1. 每个flag应该有0～1个对应的value。
+1. args通过schema来识别传入的arguments。
+1. schema指定期望数量的flags的types和values。
+1. args可以parser出arguments中有效flags的value，value的类型应该与schema中定义的相同
+---
+## schema
+- 分析
+1. 我定义schema(flag,type,defaultValue)
+- 验证
+1. 验证的方式：schema('l',Boolean.class,Boolean.FALSE),解析：支持argument为l,默认值为false
+1. 验证的方式：schema('p',Integer.class,0),解析：支持argument为p,默认值为0
+1. 验证的方式：schema('d',String.class,""),解析：支持argument为d,默认值为“”
+## schemas
+- 分析
+1. schemas是支持传入多个schema的集合，并能根据传入的flag查找对应schema的value
+- 验证
+1. 验证方式：schemas.reload(schemaList)，取得schema.getArgValue('l',value)对应类型
 
-## 验证
-1. 传入空参数，返回默认参数对象，值分别为false,0，“”
-1. 传入-l, 校验参数合法，为Boolean，值为true
-1. 传入-p, 校验参数合法，为Integer类型，值为8080
-1. 传入-d, 校验参数合法，为String类型，值为/usr/logs
-1. 传入-p 8080 -l -d /usr/logs,校验合法并取得正确的值和类型
+
