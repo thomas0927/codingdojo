@@ -15,7 +15,8 @@ public class SchemaTest {
   @DataProvider
   public Object[][] schema_check() {
     return new Object[][] {
-      {new Schema(Boolean.class, Boolean.FALSE), "", Boolean.FALSE, Boolean.TRUE}
+      {new Schema(Boolean.class, Boolean.FALSE), "", Boolean.FALSE, Boolean.TRUE},
+      {new Schema(Boolean.class, Boolean.FALSE), null, Boolean.FALSE, Boolean.FALSE}
     };
   }
 }
