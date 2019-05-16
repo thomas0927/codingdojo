@@ -10,6 +10,7 @@ public class SchemaParser {
 
   static {
     converters.put("boolean", new Schema<>(Boolean.class, Boolean.FALSE));
+    converters.put("integer", new Schema<>(Integer.class, 0));
   }
 
   public static Schema<Boolean> parser(String schemaAsText) {
