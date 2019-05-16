@@ -10,7 +10,7 @@ public class SchemasTest {
 
   @BeforeTest
   public void beforeTest() {
-    this.schemas = new Schemas("l:boolean d:string p:integer");
+    this.schemas = new Schemas("l:boolean d:string p:integer f:strings");
   }
 
   @Test(dataProvider = "schemas_list")
@@ -22,7 +22,8 @@ public class SchemasTest {
   public Object[][] schemas_list() {
     return new Object[][] {
       {'l', "", Boolean.TRUE},
-      {'d', "/usr/logs", "/usr/logs"}
+      {'d', "/usr/logs", "/usr/logs"},
+      {'f', "a,b,c,d", new String[] {"a", "b", "c", "d"}},
     };
   }
 }
