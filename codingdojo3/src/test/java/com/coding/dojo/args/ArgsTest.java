@@ -6,8 +6,9 @@ import org.testng.annotations.Test;
 
 public class ArgsTest {
   @Test(dataProvider = "schemas_args_list")
-  public void should_return_correct_value_by_schemas(
-      String argsAsText, String schemasAsText, Character flag, Object expected) {
+  public void should_return_correct_value_by_schemas(Character flag, Object expected) {
+    String schemasAsText = "l:boolean p:integer d:string";
+    String argsAsText = "-l -p 8080 -d /log";
     Schemas schemas = new Schemas(schemasAsText);
     Args args = new Args(schemas, argsAsText);
     Assert.assertEquals(args.getValue(flag), expected);
@@ -16,7 +17,7 @@ public class ArgsTest {
   @DataProvider
   public Object[][] schemas_args_list() {
     return new Object[][] {
-      {"-l -p 8080", "l:boolean p:integer", 'l', Boolean.TRUE}, {"-p 8080", "p:integer", 'p', 8080},
+      {'l', Boolean.TRUE}, {'p', 8080},
     };
   }
 }
