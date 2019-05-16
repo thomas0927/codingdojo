@@ -14,6 +14,10 @@ public class SchemaParserTest {
 
   @DataProvider
   public Object[][] string_to_schema() {
-    return new Object[][] {{"l:bool", Boolean.FALSE}};
+    return new Object[][] {
+      {"l:bool", Boolean.FALSE},
+      {"p:int", 0},
+      {"p:int", 0},
+    };
   }
 }
