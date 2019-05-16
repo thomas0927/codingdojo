@@ -20,6 +20,9 @@ public class SchemasTest {
 
   @DataProvider
   public Object[][] schemas_list() {
-    return new Object[][] {{'l', "", Boolean.TRUE}};
+    return new Object[][] {
+      {'l', "", Boolean.TRUE},
+      {'d', "/usr/logs", "/usr/logs"}
+    };
   }
 }
