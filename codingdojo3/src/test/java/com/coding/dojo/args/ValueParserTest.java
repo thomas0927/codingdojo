@@ -13,6 +13,10 @@ public class ValueParserTest {
 
   @DataProvider
   public Object[][] parser_value() {
-    return new Object[][] {{"", Boolean.class, Boolean.TRUE}};
+    return new Object[][] {
+      {"", Boolean.class, Boolean.TRUE},
+      {"80", Integer.class, 80},
+      {"80", Integer.class, 80},
+    };
   }
 }
