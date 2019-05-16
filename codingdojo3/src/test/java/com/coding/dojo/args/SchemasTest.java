@@ -10,17 +10,20 @@ public class SchemasTest {
 
   @BeforeTest
   public void beforeTest() {
-    this.schemas = new Schemas("l:boolean");
+    this.schemas = new Schemas("l:boolean p:integer");
   }
 
   @Test(dataProvider = "schemas_list")
   public void can_return_correct_type_of_value_by_schemas(
       Character flag, String value, Object expected) {
-    Assert.assertEquals(schemas.getArgs(flag, value), expected);
+    Assert.assertEquals(schemas.getArgsValue(flag, value), expected);
   }
 
   @DataProvider
   public Object[][] schemas_list() {
-    return new Object[][] {{'l', null, Boolean.FALSE}};
+    return new Object[][] {
+      {'l', null, Boolean.FALSE},
+      //      {'p', "1000", 1000},
+    };
   }
 }
