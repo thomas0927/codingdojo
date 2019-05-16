@@ -10,6 +10,7 @@ public class ValueParser {
 
   static {
     converters.put(Boolean.class, str -> "".equalsIgnoreCase(str));
+    converters.put(Integer.class, str -> Integer.valueOf(str));
   }
 
   public static Object parser(String value, Class type) {
