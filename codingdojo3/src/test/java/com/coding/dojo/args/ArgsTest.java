@@ -16,8 +16,6 @@ public class ArgsTest {
 
   @DataProvider
   public Object[][] schemas_args_list() {
-    return new Object[][] {
-      {'l', Boolean.TRUE}, {'p', 8080},
-    };
+    return new Object[][] {{'l', Boolean.TRUE}, {'p', 8080}, {'d', "/log"}};
   }
 }
