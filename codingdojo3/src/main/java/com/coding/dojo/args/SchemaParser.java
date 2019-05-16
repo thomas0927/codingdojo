@@ -2,7 +2,6 @@ package com.coding.dojo.args;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Function;
 
 public class SchemaParser {
@@ -20,7 +19,6 @@ public class SchemaParser {
     String[] schemas = schemaAsText.split(REGEX);
     String type = schemas[1];
     final String value = (schemas.length > 2) ? schemas[2] : null;
-    return (Schema)
-        Optional.ofNullable(converters.get(type)).map(parser -> parser.apply(value)).orElse(null);
+    return (Schema) converters.get(type).apply(value);
   }
 }
