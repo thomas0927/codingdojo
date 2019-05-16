@@ -1,18 +1,16 @@
 package com.coding.dojo.args;
 
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Schemas {
   private Map<Character, Schema> schemaMap;
 
   public Schemas(String schemasAsText) {
     this.schemaMap =
-        new HashMap() {
-          {
-            put('l', new Schema<>(Boolean.class, Boolean.FALSE));
-          }
-        };
+        Arrays.stream(schemasAsText.split(" "))
+            .collect(Collectors.toMap(s -> s.charAt(0), s -> SchemaParser.parser(s)));
   }
 
   public Object getArgsValue(Character flag, String value) {
