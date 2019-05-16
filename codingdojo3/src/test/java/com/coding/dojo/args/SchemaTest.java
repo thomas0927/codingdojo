@@ -20,7 +20,8 @@ public class SchemaTest {
   public Object[][] schema_check_value() {
     return new Object[][] {
       {new Schema<>(Boolean.class, Boolean.FALSE), "", Boolean.TRUE},
-      {new Schema<>(Integer.class, 0), "10", 10}
+      {new Schema<>(Integer.class, 0), "10", 10},
+      {new Schema<>(String.class, ""), "/usr", "/usr"}
     };
   }
 
