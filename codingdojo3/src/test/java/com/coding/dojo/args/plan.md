@@ -21,8 +21,8 @@
 - 验证
 1. 验证方式：取得schemas.getArgValue('l',value)对应类型的值
 ## args 可以根据Schema和参数字符串数组获取参数值
-1. 传入-x -f 8080 -e /usr/logs ，解析为参数数组
-1. 传入x:boolean f:integer e:string a:boolean，解析为schemas
+1. 传入-x -f 8080 -e /logs ，解析为参数数组
+1. 传入x:bool f:int e:str a:bool，解析为schemas
 1. args.getValue(参数)，得到正确的值
 1. **这里schemas比arguments多**要能正常获取args.getValue('a')
 
