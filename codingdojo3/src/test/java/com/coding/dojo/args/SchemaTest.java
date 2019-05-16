@@ -18,7 +18,10 @@ public class SchemaTest {
 
   @DataProvider
   public Object[][] schema_check_value() {
-    return new Object[][] {{new Schema<>(Boolean.class, Boolean.FALSE), "", Boolean.TRUE}};
+    return new Object[][] {
+      {new Schema<>(Boolean.class, Boolean.FALSE), "", Boolean.TRUE},
+      {new Schema<>(Integer.class, 0), "10", 10}
+    };
   }
 
   @DataProvider
