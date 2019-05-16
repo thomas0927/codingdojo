@@ -7,10 +7,13 @@ import java.util.function.Function;
 public class ValueParser {
   public static Map<Class, Function<String, Object>> converters = new HashMap<>();
 
+  public static final String REGEX = ",";
+
   static {
     converters.put(Boolean.class, str -> "".equalsIgnoreCase(str));
     converters.put(Integer.class, str -> Integer.valueOf(str));
     converters.put(String.class, str -> str);
+    converters.put(String[].class, str -> str.split(REGEX));
   }
 
   public static Object parser(String value, Class type) {
