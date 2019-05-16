@@ -13,7 +13,7 @@
 1. 我定义schema(type) , **之前我自己定义了defaultValue用于指定默认值** ，这次我简化一下
 - 验证
 1. 验证的方式：schema(Boolean.class),解析：支持argument为l,默认值为false
-1. 验证的方式：schema(Integer.class),解析：支持argument为p,默认值为0
+1. 验证的方式：schema(Integer.class),解析：支持argument为p,默认值为0e
 1. 验证的方式：schema(String.class),解析：支持argument为d,默认值为“”
 ## schemas 可以把字符串形式的Schemas解析成对象
 - 分析

@@ -6,15 +6,15 @@ import java.util.function.Function;
 
 public class ValueParser {
 
-  private static Map<Class, Function<String, Object>> converters = new HashMap<>();
+  private static Map<EnumSchema, Function<String, Object>> converters = new HashMap<>();
 
   static {
-    converters.put(Boolean.class, s -> "".equalsIgnoreCase(s));
-    converters.put(Integer.class, s -> Integer.parseInt(s));
-    converters.put(String.class, s -> s);
+    converters.put(EnumSchema.Bool, s -> "".equalsIgnoreCase(s));
+    converters.put(EnumSchema.Int, s -> Integer.parseInt(s));
+    converters.put(EnumSchema.String, s -> s);
   }
 
-  public static Object parser(String value, Class type) {
+  public static Object parser(String value, EnumSchema type) {
     return converters.get(type).apply(value);
   }
 }

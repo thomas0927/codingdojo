@@ -18,14 +18,14 @@ public class SchemaTest {
   @DataProvider
   public Object[][] given_value() {
     return new Object[][] {
-      {new Schema<>(Boolean.class, Boolean.FALSE), "", Boolean.TRUE},
-      {new Schema<>(Integer.class, 0), "10", 10},
-      {new Schema<>(String.class, ""), "10", "10"},
+      {new Schema(EnumSchema.Bool, Boolean.FALSE), "", Boolean.TRUE},
+      {new Schema(EnumSchema.Int, 0), "10", 10},
+      {new Schema(EnumSchema.String, ""), "10", "10"},
     };
   }
 
   @DataProvider
   public Object[][] default_value() {
-    return new Object[][] {{new Schema<>(Boolean.class, Boolean.FALSE), Boolean.FALSE}};
+    return new Object[][] {{new Schema(EnumSchema.Bool, Boolean.FALSE), Boolean.FALSE}};
   }
 }

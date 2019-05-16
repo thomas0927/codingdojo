@@ -9,9 +9,9 @@ public class SchemaParser {
   private static Map<String, Schema> converters = new HashMap<>();
 
   static {
-    converters.put("bool", new Schema(Boolean.class, Boolean.FALSE));
-    converters.put("int", new Schema(Integer.class, 0));
-    converters.put("str", new Schema(String.class, ""));
+    converters.put("bool", new Schema(EnumSchema.Bool, Boolean.FALSE));
+    converters.put("int", new Schema(EnumSchema.Int, 0));
+    converters.put("str", new Schema(EnumSchema.String, ""));
   }
 
   public static Schema parser(String schemaAsText) {
