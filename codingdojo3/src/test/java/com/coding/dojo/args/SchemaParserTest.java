@@ -17,7 +17,7 @@ public class SchemaParserTest {
     return new Object[][] {
       {"l:bool", Boolean.FALSE},
       {"p:int", 0},
-      {"p:int", 0},
+      {"d:str", ""},
     };
   }
 }
