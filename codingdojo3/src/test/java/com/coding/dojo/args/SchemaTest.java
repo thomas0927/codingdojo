@@ -21,7 +21,12 @@ public class SchemaTest {
     return new Object[][] {
       {new Schema<>(Boolean.class, Boolean.FALSE), "", Boolean.TRUE},
       {new Schema<>(Integer.class, 0), "10", 10},
-      {new Schema<>(String.class, ""), "/usr", "/usr"}
+      {new Schema<>(String.class, ""), "/usr", "/usr"},
+      {
+        new Schema<>(String[].class, new String[] {""}),
+        "this,is,a,list",
+        new String[] {"this", "is", "a", "list"}
+      },
     };
   }
 
