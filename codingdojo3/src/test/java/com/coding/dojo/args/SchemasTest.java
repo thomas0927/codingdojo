@@ -10,7 +10,7 @@ public class SchemasTest {
 
   @BeforeTest
   public void beforeTest() {
-    this.schemas = new Schemas("l:bool p:int");
+    this.schemas = new Schemas("l:bool p:int d:str");
   }
 
   @Test(dataProvider = "schema_value")
@@ -23,6 +23,7 @@ public class SchemasTest {
     return new Object[][] {
       {'l', "", Boolean.TRUE},
       {'p', "80", 80},
+      {'d', null, ""},
     };
   }
 }
