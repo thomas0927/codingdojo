@@ -9,7 +9,7 @@ public class SchemaParser {
   public static final String REGEX = ":";
   public static Map<String, Function<String, Object>> converters = new HashMap<>();
 
-  public static final String REGEX1 = ",";
+  public static final String REGEX_VALUE = ",";
 
   static {
     converters.put(
@@ -22,8 +22,13 @@ public class SchemaParser {
                 Integer[].class,
                 (null == s)
                     ? new Integer[] {0}
-                    : Arrays.stream(s.split(REGEX1)).mapToInt(i -> Integer.valueOf(i)).toArray()));
+                    : Arrays.stream(s.split(REGEX_VALUE))
+                        .mapToInt(i -> Integer.valueOf(i))
+                        .toArray()));
     converters.put("string", s -> new Schema(String.class, (null == s) ? "" : s));
+    converters.put(
+        "strings",
+        s -> new Schema(String[].class, (null == s) ? new String[] {""} : s.split(REGEX_VALUE)));
   }
 
   public static Schema parser(String schemaAsText) {

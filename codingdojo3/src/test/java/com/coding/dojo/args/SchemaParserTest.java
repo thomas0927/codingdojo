@@ -18,6 +18,7 @@ public class SchemaParserTest {
       {"p:integer", 0},
       {"d:string", ""},
       {"w:string:/usr/data", "/usr/data"},
+      {"w:strings:1,2,3", new String[] {"1", "2", "3"}},
       {"g:integers", new Integer[] {0}},
       {"g:integers:1,2,3,4,5", new Integer[] {1, 2, 3, 4, 5}},
     };
