@@ -16,6 +16,7 @@ public class ValueParserTest {
       {"", Boolean.class, Boolean.TRUE},
       {null, Boolean.class, Boolean.FALSE},
       {"1", Integer.class, 1},
+      {"/log", String.class, "/log"},
     };
   }
 }
