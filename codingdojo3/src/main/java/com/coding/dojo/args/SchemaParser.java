@@ -12,6 +12,7 @@ public class SchemaParser {
   static {
     converters.put(
         "boolean", s -> new Schema(Boolean.class, (null == s) ? Boolean.FALSE : Boolean.TRUE));
+    converters.put("integer", s -> new Schema(Integer.class, (null == s) ? 0 : Integer.valueOf(s)));
   }
 
   public static Schema parser(String schemaAsText) {
