@@ -10,7 +10,7 @@ public class SchemasTest {
 
   @BeforeTest
   public void beforeTest() {
-    this.schemas = new Schemas("l:boolean d:sting p:integer");
+    this.schemas = new Schemas("l:boolean d:string p:integer");
   }
 
   @Test(dataProvider = "schemas_list")
