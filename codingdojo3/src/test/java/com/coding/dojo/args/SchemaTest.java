@@ -11,6 +11,16 @@ public class SchemaTest {
     Assert.assertEquals(schema.getValue(null), defaultValue);
   }
 
+  @Test(dataProvider = "schema_check_value")
+  public void should_return_value_as_schema_type(Schema schema, String value, Object actualValue) {
+    Assert.assertEquals(schema.getValue(value), actualValue);
+  }
+
+  @DataProvider
+  public Object[][] schema_check_value() {
+    return new Object[][] {{new Schema<>(Boolean.class, Boolean.FALSE), "", Boolean.TRUE}};
+  }
+
   @DataProvider
   public Object[][] schema_check_default() {
     return new Object[][] {
