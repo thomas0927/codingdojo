@@ -22,7 +22,7 @@ public class SchemaParser {
                 Integer[].class,
                 (null == s)
                     ? new Integer[] {0}
-                    : Arrays.stream(s.split(REGEX1)).mapToInt(i -> Integer.valueOf(i))));
+                    : Arrays.stream(s.split(REGEX1)).mapToInt(i -> Integer.valueOf(i)).toArray()));
     converters.put("string", s -> new Schema(String.class, (null == s) ? "" : s));
   }
 
