@@ -14,6 +14,6 @@ public class Schema<T> {
   }
 
   public T getValue(String value) {
-    return (T) Boolean.TRUE;
+    return (T) ValueParser.parser(value, this.clz);
   }
 }
