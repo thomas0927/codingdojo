@@ -18,6 +18,7 @@ public class ValueParserTest {
       {"0", Integer.class, 0},
       {"/usr", String.class, "/usr"},
       {"1,2,3", String[].class, new String[] {"1", "2", "3"}},
+      {"1,2,3", Integer[].class, new Integer[] {1, 2, 3}},
     };
   }
 }
