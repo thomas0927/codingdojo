@@ -11,6 +11,7 @@ public class ValueParser {
   static {
     converters.put(Boolean.class, s -> "".equalsIgnoreCase(s));
     converters.put(Integer.class, s -> Integer.parseInt(s));
+    converters.put(String.class, s -> s);
   }
 
   public static Object parser(String value, Class type) {
