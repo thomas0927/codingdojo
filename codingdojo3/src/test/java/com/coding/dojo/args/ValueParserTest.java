@@ -16,7 +16,7 @@ public class ValueParserTest {
       {"", Boolean.class, Boolean.TRUE},
       {null, Boolean.class, Boolean.FALSE},
       {"0", Integer.class, 0},
-      {"/usr", String.class, "/usr"}
+      {"/usr", String.class, "/usr"},
     };
   }
 }

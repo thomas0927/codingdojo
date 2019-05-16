@@ -2,7 +2,6 @@ package com.coding.dojo.args;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Function;
 
 public class ValueParser {
@@ -15,8 +14,6 @@ public class ValueParser {
   }
 
   public static Object parser(String value, Class type) {
-    return Optional.ofNullable(converters.get(type))
-        .map(parser -> parser.apply(value))
-        .orElse(null);
+    return converters.get(type).apply(value);
   }
 }
