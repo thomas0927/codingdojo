@@ -8,8 +8,7 @@ public class SchemaTest {
   @Test(dataProvider = "schema_check")
   public void should_return_default_value_by_schema(
       Schema schema, String value, Object defaultValue, Object expected) {
-    Assert.assertEquals(schema.getValue(), expected);
-    Assert.assertEquals(schema.getValue(value), expected);
+    Assert.assertEquals(schema.getValue(), defaultValue);
   }
 
   @DataProvider
