@@ -16,7 +16,7 @@ public class ValueParserTest {
     return new Object[][] {
       {"", EnumSchema.Bool, Boolean.TRUE},
       {"80", EnumSchema.Int, 80},
-      {"80", EnumSchema.String, "80"},
+      {"80", EnumSchema.Str, "80"},
     };
   }
 }

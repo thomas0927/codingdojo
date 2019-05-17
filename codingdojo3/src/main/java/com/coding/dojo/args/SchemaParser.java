@@ -6,17 +6,17 @@ import java.util.Map;
 public class SchemaParser {
 
   public static final String REGEX = ":";
-  private static Map<String, Schema> converters = new HashMap<>();
+  private static Map<EnumSchema, Schema> converters = new HashMap<>();
 
   static {
-    converters.put("bool", new Schema(EnumSchema.Bool, Boolean.FALSE));
-    converters.put("int", new Schema(EnumSchema.Int, 0));
-    converters.put("str", new Schema(EnumSchema.String, ""));
+    converters.put(EnumSchema.Bool, new Schema(EnumSchema.Bool, Boolean.FALSE));
+    converters.put(EnumSchema.Int, new Schema(EnumSchema.Int, 0));
+    converters.put(EnumSchema.Str, new Schema(EnumSchema.Str, ""));
   }
 
   public static Schema parser(String schemaAsText) {
     String[] schemaSplit = schemaAsText.split(REGEX);
     String type = schemaSplit[1];
-    return converters.get(type);
+    return converters.get(EnumSchema.valueOf(type));
   }
 }

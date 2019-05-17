@@ -20,7 +20,7 @@ public class SchemaTest {
     return new Object[][] {
       {new Schema(EnumSchema.Bool, Boolean.FALSE), "", Boolean.TRUE},
       {new Schema(EnumSchema.Int, 0), "10", 10},
-      {new Schema(EnumSchema.String, ""), "10", "10"},
+      {new Schema(EnumSchema.Str, ""), "10", "10"},
     };
   }
 

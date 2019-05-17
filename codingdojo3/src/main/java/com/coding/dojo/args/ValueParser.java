@@ -11,7 +11,7 @@ public class ValueParser {
   static {
     converters.put(EnumSchema.Bool, s -> "".equalsIgnoreCase(s));
     converters.put(EnumSchema.Int, s -> Integer.parseInt(s));
-    converters.put(EnumSchema.String, s -> s);
+    converters.put(EnumSchema.Str, s -> s);
   }
 
   public static Object parser(String value, EnumSchema type) {
