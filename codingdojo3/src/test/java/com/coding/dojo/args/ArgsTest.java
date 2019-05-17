@@ -7,7 +7,7 @@ public class ArgsTest {
   @Test
   public void should_return_correct_args_value() {
     String argsAsText = "-x -f 8080 -e /logs";
-    String schemasAsText = "x:bool f:int e:str a:bool";
+    String schemasAsText = "x:Bool f:Int e:Str a:Bool";
     Schemas schemas = new Schemas(schemasAsText);
     Args args = new Args(schemas, argsAsText);
     Assert.assertEquals(args.getValue('x'), Boolean.TRUE);
