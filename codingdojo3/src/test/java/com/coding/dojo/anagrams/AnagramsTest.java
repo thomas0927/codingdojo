@@ -23,20 +23,32 @@ public class AnagramsTest {
     Assert.assertEquals(anagrams.mostWords(), expected);
   }
 
-  @Test(dataProvider = "longest_anagram_from_file")
+  @Test(dataProvider = "longest_anagram_from_file_mini")
   public void can_get_longest_anagram_from_file(String fileName, String expected) {
 
     Anagrams anagrams = new Anagrams();
     anagrams.guessWords(fileName);
     System.out.println(anagrams.longestWords());
-    System.out.println(anagrams.mostWords());
-    Assert.assertEquals(1, 1);
-    //    Assert.assertEquals(anagrams.longestWords(), expected);
+    Assert.assertEquals(anagrams.longestWords(), expected);
   }
 
   @DataProvider
-  public Object[][] longest_anagram_from_file() {
-    return new Object[][] {{"/wordlist.txt", "AA's s'AA As'A"}};
+  public Object[][] longest_anagram_from_file_mini() {
+    return new Object[][] {{"/wordlist-mini.txt", "AA's s'AA As'A"}};
+  }
+
+  @Test(dataProvider = "most_words_anagram_from_file_mini")
+  public void can_get_most_words_anagram_from_file(String fileName, String expected) {
+
+    Anagrams anagrams = new Anagrams();
+    anagrams.guessWords(fileName);
+    System.out.println(anagrams.mostWords());
+    Assert.assertEquals(anagrams.longestWords(), expected);
+  }
+
+  @DataProvider
+  public Object[][] most_words_anagram_from_file_mini() {
+    return new Object[][] {{"/wordlist-mini.txt", "AA's s'AA As'A"}};
   }
 
   @DataProvider
