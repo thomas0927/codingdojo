@@ -36,7 +36,7 @@ public class AnagramsTest {
 
     Anagrams anagrams = new Anagrams();
     anagrams.guessWords(fileName);
-    Assert.assertEquals(anagrams.longestWords(), expected);
+    Assert.assertEquals(anagrams.mostWords(), expected);
   }
 
   @Test(dataProvider = "word_list_from_file")
@@ -54,7 +54,7 @@ public class AnagramsTest {
 
   @DataProvider
   public Object[][] longest_anagram_from_file_mini() {
-    return new Object[][] {{"/wordlist-mini.txt", "AA's s'AA As'A"}};
+    return new Object[][] {{"/wordlist-mini.txt", "ACTH's"}};
   }
 
   @DataProvider
