@@ -33,12 +33,16 @@ public class Anagrams {
 
   public void guessWords(String fileName) {
     try {
-      Path file = Paths.get(URI.create(this.getClass().getResource(fileName).toString()));
-      BufferedReader br = Files.newBufferedReader(file);
-      List<Word> words = br.lines().map(Word::new).collect(Collectors.toList());
+      List<Word> words = getWordsFromFile(fileName);
       guessWords(words);
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private List<Word> getWordsFromFile(String fileName) throws IOException {
+    Path file = Paths.get(URI.create(this.getClass().getResource(fileName).toString()));
+    BufferedReader br = Files.newBufferedReader(file);
+    return br.lines().map(Word::new).collect(Collectors.toList());
   }
 }
