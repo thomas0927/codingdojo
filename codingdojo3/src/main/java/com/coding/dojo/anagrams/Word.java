@@ -22,4 +22,9 @@ public class Word {
     Arrays.sort(bytes);
     this.hashNum = Arrays.hashCode(bytes);
   }
+
+  @Override
+  public String toString() {
+    return word;
+  }
 }
