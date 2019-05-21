@@ -9,12 +9,11 @@ import java.util.List;
 
 public class AnagramTest {
 
-  //    @Test(dataProvider = "anagram_new_word_length")
-  //    public void should_return_new_length_after_guess_a_new_word(List<Word> words, Integer
-  //   expected) {
-  //      Anagram anagram = new Anagram(words);
-  //      Assert.assertEquals(anagram.length(), expected);
-  //    }
+  @Test(dataProvider = "anagram_new_word_length")
+  public void should_return_new_length_after_guess_a_new_word(List<Word> words, Integer expected) {
+    Anagram anagram = new Anagram(words);
+    Assert.assertEquals(anagram.length(), expected);
+  }
 
   @Test(dataProvider = "anagram_new_number_words")
   public void should_return_new_number_words(List<Word> words, Integer expected) {
