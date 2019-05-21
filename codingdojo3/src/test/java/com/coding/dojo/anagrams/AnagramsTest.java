@@ -28,13 +28,7 @@ public class AnagramsTest {
 
     Anagrams anagrams = new Anagrams();
     anagrams.guessWords(fileName);
-    System.out.println(anagrams.longestWords());
     Assert.assertEquals(anagrams.longestWords(), expected);
-  }
-
-  @DataProvider
-  public Object[][] longest_anagram_from_file_mini() {
-    return new Object[][] {{"/wordlist-mini.txt", "AA's s'AA As'A"}};
   }
 
   @Test(dataProvider = "most_words_anagram_from_file_mini")
@@ -42,8 +36,25 @@ public class AnagramsTest {
 
     Anagrams anagrams = new Anagrams();
     anagrams.guessWords(fileName);
-    System.out.println(anagrams.mostWords());
     Assert.assertEquals(anagrams.longestWords(), expected);
+  }
+
+  @Test(dataProvider = "word_list_from_file")
+  public void find_longest_from_wordlist(String fileName) {
+    Anagrams anagrams = new Anagrams();
+    anagrams.guessWords(fileName);
+    System.out.println(anagrams.mostWords());
+    System.out.println(anagrams.longestWords());
+  }
+
+  @DataProvider
+  public Object[][] word_list_from_file() {
+    return new Object[][] {{"/wordlist.txt"}};
+  }
+
+  @DataProvider
+  public Object[][] longest_anagram_from_file_mini() {
+    return new Object[][] {{"/wordlist-mini.txt", "AA's s'AA As'A"}};
   }
 
   @DataProvider

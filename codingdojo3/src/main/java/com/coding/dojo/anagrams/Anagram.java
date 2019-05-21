@@ -12,7 +12,7 @@ public class Anagram {
   }
 
   public Integer length() {
-    return words.get(0).toString().length() * numberOfWords();
+    return words.get(0).toString().length();
   }
 
   public Integer numberOfWords() {

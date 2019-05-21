@@ -34,7 +34,7 @@ public class AnagramTest {
 
   @DataProvider
   public Object[][] anagram_new_word_length() {
-    return new Object[][] {{Arrays.asList(new Word("abc"), new Word("cba")), 6}};
+    return new Object[][] {{Arrays.asList(new Word("abc"), new Word("cba")), 3}};
   }
 
   @DataProvider
