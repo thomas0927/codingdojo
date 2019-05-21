@@ -4,8 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,10 +28,7 @@ public class AnagramsTest {
 
     Anagrams anagrams = new Anagrams();
     anagrams.guessWords(fileName);
-    Path file = Paths.get(fileName);
-    System.out.print(file.toString());
-    Assert.assertEquals(1, 1);
-    //    Assert.assertEquals(anagrams.longestWords(), expected);
+    Assert.assertEquals(anagrams.longestWords(), expected);
   }
 
   @DataProvider
