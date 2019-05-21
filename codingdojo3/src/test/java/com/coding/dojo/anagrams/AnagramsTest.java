@@ -40,7 +40,7 @@ public class AnagramsTest {
   }
 
   @Test(dataProvider = "word_list_from_file")
-  public void find_longest_from_wordlist(String fileName) {
+  public void find_longest_from_word_list(String fileName) {
     Anagrams anagrams = new Anagrams();
     anagrams.guessWords(fileName);
     System.out.println(anagrams.mostWords());
