@@ -6,7 +6,10 @@ public class FizzBuzz {
       return "FizzBuzz";
     }
     if (number % 10 == 3 || number / 10 == 3) {
-        return "Fizz";
+      return "Fizz";
+    }
+    if (number % 10 == 5 || number / 10 == 5) {
+      return "Buzz";
     }
     if (isDivisible(number, 3)) {
       return "Fizz";
