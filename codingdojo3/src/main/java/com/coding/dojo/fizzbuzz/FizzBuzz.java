@@ -2,22 +2,24 @@ package com.coding.dojo.fizzbuzz;
 
 public class FizzBuzz {
   public String say(Integer number) {
-    if (number % 3 == 0 && number % 5 == 0) {
+    if (isDivisibleOrCaptainsBy(number, 3) && isDivisibleOrCaptainsBy(number, 5)) {
       return "FizzBuzz";
     }
-    if (number % 10 == 3 || number / 10 == 3) {
+    if (isDivisibleOrCaptainsBy(number, 3)) {
       return "Fizz";
     }
-    if (number % 10 == 5 || number / 10 == 5) {
-      return "Buzz";
-    }
-    if (isDivisible(number, 3)) {
-      return "Fizz";
-    }
-    if (isDivisible(number, 5)) {
+    if (isDivisibleOrCaptainsBy(number, 5)) {
       return "Buzz";
     }
     return String.valueOf(number);
+  }
+
+  private boolean isDivisibleOrCaptainsBy(Integer number, int i) {
+    return isContains(number, i) || isDivisible(number, i);
+  }
+
+  private boolean isContains(Integer number, int i) {
+    return number % 10 == i || number / 10 == i;
   }
 
   private boolean isDivisible(Integer number, int i) {
