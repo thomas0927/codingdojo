@@ -11,12 +11,24 @@ public class FizzBuzzTest {
   @ParameterizedTest(name = "should_return {1} given {0}")
   @CsvSource({"1,1", "3,Fizz"})
   public void should_return_fizz_buzz_list_correct(int number, String answer) {
-    assertEquals(new FizzBuzz().say(number), answer);
+    assertEquals(getSay(number), answer);
+  }
+
+  private String getSay(int number) {
+    return new FizzBuzz().say(number);
   }
 
   @Test
   public void should_print_fizz_buzz_list_correctly() {
-    assertEquals(100, new FizzBuzz().print().split("\n").length);
-    assertEquals("1", new FizzBuzz().print().split("\n")[1 - 1]);
+    assertEquals(100, splitOutput().length);
+    assertEquals("1", getOutputLine(1));
+  }
+
+  private String getOutputLine(int number) {
+    return splitOutput()[number - 1];
+  }
+
+  private String[] splitOutput() {
+    return new FizzBuzz().print().split("\n");
   }
 }
