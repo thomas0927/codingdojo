@@ -9,6 +9,6 @@ public class FizzBuzz {
   }
 
   public String print() {
-    return IntStream.range(1, 101).mapToObj(x -> " ").collect(Collectors.joining("\n"));
+    return IntStream.range(1, 101).mapToObj(this::say).collect(Collectors.joining("\n"));
   }
 }
