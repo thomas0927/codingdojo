@@ -2,9 +2,6 @@ package com.coding.dojo.fizzbuzz;
 
 public class FizzBuzz {
   public String say(Integer number) {
-    if (isDivisibleOrCaptainsBy(number, 3) && isDivisibleOrCaptainsBy(number, 5)) {
-      return "FizzBuzz";
-    }
     String result1 = getFizz(number, 3);
     String result2 = getBuzz(number, 5);
     String result = String.join("", result1, result2);
