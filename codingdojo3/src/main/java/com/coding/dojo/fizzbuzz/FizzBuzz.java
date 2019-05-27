@@ -9,21 +9,18 @@ public class FizzBuzz {
     if (isDivisible(number, 3) && isDivisible(number, 5)) {
       return "FizzBuzz";
     }
-    if (contains3(number)) {
+    if (contains(number, 3) || isDivisible(number, 3)) {
       return "Fizz";
     }
-    if (isDivisible(number, 3)) {
-      return "Fizz";
-    }
-    if (isDivisible(number, 5)) {
+    if (contains(number, 5) || isDivisible(number, 5)) {
       return "Buzz";
     }
 
     return String.valueOf(number);
   }
 
-  private boolean contains3(int number) {
-    return number / 10 == 3 || number % 10 == 3;
+  private boolean contains(int number, int i) {
+    return number / 10 == i || number % 10 == i;
   }
 
   private boolean isDivisible(int number, int i) {
