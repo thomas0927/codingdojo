@@ -16,10 +16,7 @@ public class DivisibleRule implements Executable {
 
   @Override
   public String exec(int number) {
-    if (isContains(number)) {
-      return this.answer;
-    }
-    if (isDivisible(number)) {
+    if (isContains(number) || isDivisible(number)) {
       return this.answer;
     }
     return "";
