@@ -1,6 +1,7 @@
 package com.coding.dojo.fizzbuzz;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class FizzBuzz {
   public String say(Integer number) {
@@ -16,8 +17,8 @@ public class FizzBuzz {
   }
 
   private String[] getRulesResult(Integer number) {
-
-    return new String[] {getFizzRuleResult(number), getBuzzRuleResult(number)};
+    List<Executable> rules = Rules.all();
+    return rules.stream().map(rule -> rule.exec(number)).toArray(String[]::new);
   }
 
   private String getFizzRuleResult(Integer number) {
