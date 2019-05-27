@@ -1,14 +1,19 @@
 package com.coding.dojo.fizzbuzz;
 
+import java.util.Arrays;
+
 public class FizzBuzz {
   public String say(Integer number) {
-    String result1 = getFizz(number, 3);
-    String result2 = getBuzz(number, 5);
-    String result = String.join("", result1, result2);
-    if (!result.isEmpty()) {
-      return result;
-    }
-    return String.valueOf(number);
+    String[] results = new String[] {getFizz(number, 3), getBuzz(number, 5)};
+
+    return getComponentResult(number, results);
+  }
+
+  private String getComponentResult(Integer number, String[] results) {
+    return Arrays.stream(results)
+        .filter(v -> !v.isEmpty())
+        .reduce(String::concat)
+        .orElse(String.valueOf(number));
   }
 
   private String getFizz(Integer number, int i) {
