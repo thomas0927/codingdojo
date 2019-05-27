@@ -16,6 +16,8 @@ public class FizzBuzzTest {
 
   @Test
   public void should_print_fizz_buzz_list_correctly() {
+    FizzBuzz fizzBuzz = new FizzBuzz();
+    System.out.println(fizzBuzz.print());
     assertEquals(100, new FizzBuzz().print().split("\n").length);
   }
 }
