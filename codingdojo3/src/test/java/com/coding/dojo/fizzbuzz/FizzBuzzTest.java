@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FizzBuzzTest {
   @ParameterizedTest(name = "should return {1} given {0}")
-  @CsvSource({"1,1", "3,Fizz", "13,Fizz", "5,Buzz"})
+  @CsvSource({"1,1", "3,Fizz", "13,Fizz", "5,Buzz", "52,Buzz"})
   public void should_answer_correct_fizz_buzz_number(Integer number, String answer) {
     assertEquals(getSay(number), answer);
   }
