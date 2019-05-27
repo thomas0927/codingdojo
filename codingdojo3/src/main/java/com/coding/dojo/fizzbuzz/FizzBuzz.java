@@ -2,6 +2,9 @@ package com.coding.dojo.fizzbuzz;
 
 public class FizzBuzz {
   public String say(Integer number) {
-    return "1";
+    if (number % 3 == 0) {
+        return "Fizz";
+    }
+    return String.valueOf(number);
   }
 }
