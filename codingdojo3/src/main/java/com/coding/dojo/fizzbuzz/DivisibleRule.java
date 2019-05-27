@@ -19,6 +19,6 @@ public class DivisibleRule implements Executable {
   }
 
   private boolean isContains(Integer number) {
-    return String.valueOf(number).contains(String.valueOf(in));
+    return number / 10 == this.in || number % 10 == this.in;
   }
 }
