@@ -1,5 +1,6 @@
 package com.coding.dojo.fizzbuzz;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -11,5 +12,10 @@ public class FizzBuzzTest {
   @CsvSource({"1,1"})
   public void should_return_fizz_buzz_list_correct(int number, String answer) {
     assertEquals(new FizzBuzz().say(number), answer);
+  }
+
+  @Test
+  public void should_print_fizz_buzz_list_correctly() {
+    assertEquals(100, new FizzBuzz().print().split("\n").length);
   }
 }
