@@ -1,5 +1,6 @@
 package com.coding.dojo.fizzbuzz;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -19,6 +20,11 @@ public class FizzBuzzTest {
   })
   public void should_answer_correct_fizz_buzz_number(Integer number, String answer) {
     assertEquals(getSay(number), answer);
+  }
+
+  @Test
+  public void should_return_correct_list() {
+    assertEquals(100, new FizzBuzz().print(100).split("\n").length);
   }
 
   private String getSay(Integer number) {
