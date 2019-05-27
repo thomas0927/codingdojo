@@ -5,17 +5,29 @@ import java.util.stream.IntStream;
 
 public class FizzBuzz {
   public String say(int number) {
-    if (number % 3 == 0 && number % 5 == 0) {
-        return "FizzBuzz";
+
+    if (isDivisible(number, 3) && isDivisible(number, 5)) {
+      return "FizzBuzz";
     }
-    if (number % 3 == 0) {
+    if (contains3(number)) {
       return "Fizz";
     }
-    if (number % 5 == 0) {
+    if (isDivisible(number, 3)) {
+      return "Fizz";
+    }
+    if (isDivisible(number, 5)) {
       return "Buzz";
     }
 
     return String.valueOf(number);
+  }
+
+  private boolean contains3(int number) {
+    return number / 10 == 3 || number % 10 == 3;
+  }
+
+  private boolean isDivisible(int number, int i) {
+    return number % i == 0;
   }
 
   public String print() {
