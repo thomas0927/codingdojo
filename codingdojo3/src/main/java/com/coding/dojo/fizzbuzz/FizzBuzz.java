@@ -1,14 +1,23 @@
 package com.coding.dojo.fizzbuzz;
 
+import java.util.Arrays;
+
 public class FizzBuzz {
   public String say(Integer number) {
-    String result1 = getFizzRuleResult(number);
-    String result2 = getBuzzRuleResult(number);
-    String result = result1 + result2;
-    if (!result.isEmpty()) {
-      return result;
-    }
-    return String.valueOf(number);
+    String[] results = getRulesResult(number);
+    return getComponentRuleResult(number, results);
+  }
+
+  private String getComponentRuleResult(Integer number, String[] results) {
+    return Arrays.stream(results)
+        .filter(v -> !v.isEmpty())
+        .reduce(String::concat)
+        .orElse(String.valueOf(number));
+  }
+
+  private String[] getRulesResult(Integer number) {
+
+    return new String[] {getFizzRuleResult(number), getBuzzRuleResult(number)};
   }
 
   private String getFizzRuleResult(Integer number) {
