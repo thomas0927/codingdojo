@@ -8,7 +8,9 @@ public class ValueParser {
   private static Map<Class, Function<String, Object>> converters = new HashMap<>();
 
   static {
-    converters.put(Boolean.class, str -> "".equalsIgnoreCase(str));
+    converters.put(Boolean.class, ""::equalsIgnoreCase);
+    converters.put(Integer.class, Integer::valueOf);
+    converters.put(String.class, s -> s);
   }
 
   public static <T> T parser(String valueText, Class<T> clz) {
