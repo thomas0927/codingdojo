@@ -1,12 +1,20 @@
 package com.coding.dojo.args;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class SchemaParserTest {
-  @Test
-  public void should_parser_value_by_schems() {
-    Schema schema = SchemaParser.parser("l:boolean");
-    Assert.assertEquals(schema.getValue(), Boolean.FALSE);
+  @Test(dataProvider = "parser_value_by_schemas")
+  public void should_parser_value_by_schemas(String schemasAsText, Object resultValue) {
+    Schema schema = SchemaParser.parser(schemasAsText);
+    Assert.assertEquals(schema.getValue(), resultValue);
+  }
+
+  @DataProvider
+  public Object[][] parser_value_by_schemas() {
+    return new Object[][] {
+      {"l:boolean", Boolean.FALSE},
+    };
   }
 }
