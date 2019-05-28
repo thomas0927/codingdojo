@@ -12,6 +12,9 @@ public class SchemaTest {
 
   @DataProvider
   public Object[][] return_default_value() {
-    return new Object[][] {{new Schema(Boolean.class, Boolean.FALSE), Boolean.FALSE}};
+    return new Object[][] {
+      {new Schema(Boolean.class, Boolean.FALSE), Boolean.FALSE},
+      {new Schema(Integer.class, 0), 0},
+    };
   }
 }
