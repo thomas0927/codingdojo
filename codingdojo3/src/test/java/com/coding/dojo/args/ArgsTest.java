@@ -12,5 +12,6 @@ public class ArgsTest {
     Args args = new Args(schemas, argsText);
     Assert.assertEquals(args.getValue('l'), Boolean.TRUE);
     Assert.assertEquals(args.getValue('p'), 8080);
+    Assert.assertEquals(args.getValue('d'), "/usr/log");
   }
 }
