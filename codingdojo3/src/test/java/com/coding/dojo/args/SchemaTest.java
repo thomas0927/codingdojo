@@ -20,7 +20,10 @@ public class SchemaTest {
 
   @DataProvider
   public Object[][] parser_schema_value() {
-    return new Object[][] {{Boolean.class, Boolean.FALSE, "", Boolean.TRUE}};
+    return new Object[][] {
+      {Boolean.class, Boolean.FALSE, "", Boolean.TRUE},
+      {Integer.class, 0, "8080", 8080}
+    };
   }
 
   @DataProvider
