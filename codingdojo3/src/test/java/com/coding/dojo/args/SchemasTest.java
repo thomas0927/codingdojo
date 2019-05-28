@@ -16,6 +16,7 @@ public class SchemasTest {
   public Object[][] get_correct_value_of_schema() {
     return new Object[][] {
       {"l:boolean", 'l', "", Boolean.TRUE},
+      {"l:boolean d:string", 'd', "/logs", "/logs"},
     };
   }
 }
