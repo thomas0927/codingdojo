@@ -15,7 +15,8 @@ public class SchemaTest {
   public Object[][] schema_default_value() {
     return new Object[][] {
       {Boolean.class, Boolean.FALSE, Boolean.FALSE},
-      {Integer.class, 0, 0}
+      {Integer.class, 0, 0},
+      {String.class, "/log", "/log"}
     };
   }
 }
