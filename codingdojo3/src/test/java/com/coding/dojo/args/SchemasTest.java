@@ -8,7 +8,7 @@ public class SchemasTest {
 
   @Test(dataProvider = "correct_schemas")
   public void return_correct_schemas(Character flag, String value, Object resultValue) {
-    Schemas schemas = new Schemas("l:boolean p:integer");
+    Schemas schemas = new Schemas("l:boolean p:integer d:string");
     Assert.assertEquals(schemas.getArgsValue(flag, value), resultValue);
   }
 
@@ -18,6 +18,8 @@ public class SchemasTest {
       {'l', "", Boolean.TRUE},
       {'l', null, Boolean.FALSE},
       {'p', null, 0},
+      {'d', null, ""},
+      {'d', "/log", "/log"},
       {'p', "8080", 8080},
     };
   }
