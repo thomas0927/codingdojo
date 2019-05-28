@@ -16,6 +16,7 @@ public class ArgsTest {
   public Object[][] get_value_by_schemas() {
     return new Object[][] {
       {"-l", "l:boolean", 'l', Boolean.TRUE},
+      {"-l -p 8080", "l:boolean p:integer", 'p', 8080},
     };
   }
 }
