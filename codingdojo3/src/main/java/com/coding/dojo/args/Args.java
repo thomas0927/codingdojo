@@ -4,11 +4,13 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Args {
   private final Map<Character, Argument> argsMap;
   private Schemas schemas;
+  private final Argument defaultArgument = new Argument('-', null);
 
   public Args(String argsAsText, String schemasAsText) {
     this.schemas = new Schemas(schemasAsText);
@@ -21,6 +23,10 @@ public class Args {
   }
 
   public Object getValue(Character flag) {
-    return schemas.getArgsValue(flag, argsMap.get(flag).getValue());
+    return schemas.getArgsValue(flag, getValueOfNullable(flag));
+  }
+
+  private String getValueOfNullable(Character flag) {
+    return Optional.ofNullable(argsMap.get(flag)).orElse(defaultArgument).getValue();
   }
 }
