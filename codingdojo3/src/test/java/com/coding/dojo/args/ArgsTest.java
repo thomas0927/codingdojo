@@ -1,12 +1,21 @@
 package com.coding.dojo.args;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class ArgsTest {
-  @Test
-  public void should_get_value_by_schemas() {
-    Args args = new Args("-l -p 8080", "l:boolean p:integer");
-    Assert.assertEquals(args.getValue('l'), Boolean.TRUE);
+  @Test(dataProvider = "get_value_by_schemas")
+  public void should_get_value_by_schemas(
+      String argsAsText, String schemasAsText, Character flag, Object expected) {
+    Args args = new Args(argsAsText, schemasAsText);
+    Assert.assertEquals(args.getValue(flag), expected);
+  }
+
+  @DataProvider
+  public Object[][] get_value_by_schemas() {
+    return new Object[][] {
+      {"-l", "l:boolean", 'l', Boolean.TRUE},
+    };
   }
 }
