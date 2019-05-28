@@ -14,6 +14,9 @@ public class SchemasTest {
 
   @DataProvider
   public Object[][] correct_schemas() {
-    return new Object[][] {{'l', "", Boolean.TRUE}};
+    return new Object[][] {
+      {'l', "", Boolean.TRUE},
+      {'l', null, Boolean.FALSE}
+    };
   }
 }
