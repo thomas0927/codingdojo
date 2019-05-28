@@ -11,6 +11,12 @@ public class SchemaTest {
     Assert.assertEquals(schema.getValue(), resultValue);
   }
 
+  @Test
+  public void should_parser_schema_value() {
+    Schema schema = new Schema(Boolean.class, Boolean.FALSE);
+    Assert.assertEquals(schema.getValue(""), Boolean.TRUE);
+  }
+
   @DataProvider
   public Object[][] schema_default_value() {
     return new Object[][] {
