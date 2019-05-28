@@ -15,6 +15,7 @@ public class SchemaParserTest {
   public Object[][] parser_value_by_schemas() {
     return new Object[][] {
       {"l:boolean", Boolean.FALSE},
+      {"l:integer", 0},
     };
   }
 }

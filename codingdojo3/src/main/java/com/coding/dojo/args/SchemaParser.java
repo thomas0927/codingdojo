@@ -7,7 +7,8 @@ public class SchemaParser {
   private static Map<String, Schema> converters = new HashMap<>();
 
   static {
-    converters.put("boolean", new Schema(Boolean.class, Boolean.FALSE));
+    converters.put("boolean", new Schema<>(Boolean.class, Boolean.FALSE));
+    converters.put("integer", new Schema<>(Integer.class, 0));
   }
 
   public static Schema parser(String schemasAsText) {
