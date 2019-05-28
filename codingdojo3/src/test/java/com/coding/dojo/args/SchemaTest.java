@@ -20,6 +20,7 @@ public class SchemaTest {
     return new Object[][] {
       {new Schema(Boolean.class, Boolean.FALSE), "", Boolean.TRUE},
       {new Schema(Integer.class, 0), "1008", 1008},
+      {new Schema(String.class, ""), "1008", "1008"},
     };
   }
 
