@@ -11,5 +11,6 @@ public class ArgsTest {
     Schemas schemas = new Schemas(schemasAsText);
     Args args = new Args(schemas, argsText);
     Assert.assertEquals(args.getValue('l'), Boolean.TRUE);
+    Assert.assertEquals(args.getValue('p'), 8080);
   }
 }
