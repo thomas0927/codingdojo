@@ -15,6 +15,7 @@ public class ValueParserTest {
     return new Object[][] {
       {"", Boolean.class, Boolean.TRUE},
       {"808", Integer.class, 808},
+      {"/log", String.class, "/log"},
     };
   }
 }
