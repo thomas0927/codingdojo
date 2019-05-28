@@ -17,7 +17,7 @@ public class ArgsTest {
     return new Object[][] {
       {"-l", "l:boolean", 'l', Boolean.TRUE},
       {"-l -p 8080", "l:boolean p:integer", 'p', 8080},
-      {"-p 8080", "l:boolean p:integer", 'l', Boolean.FALSE},
+      {"-l -p 8080", "l:boolean p:integer d:string", 'd', ""},
     };
   }
 }
