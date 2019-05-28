@@ -17,6 +17,7 @@ public class SchemasTest {
     return new Object[][] {
       {"l:boolean", 'l', "", Boolean.TRUE},
       {"l:boolean d:string", 'd', "/logs", "/logs"},
+      {"p:integer d:string", 'p', "1000", 1000},
     };
   }
 }
