@@ -15,6 +15,7 @@ public class ValueParserTest {
     return new Object[][] {
       {"", Boolean.class, Boolean.TRUE},
       {"10", Integer.class, 10},
+      {"10", String.class, "10"},
     };
   }
 }

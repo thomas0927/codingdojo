@@ -11,6 +11,7 @@ public class ValueParser {
   static {
     converters.put(Boolean.class, ""::equalsIgnoreCase);
     converters.put(Integer.class, Integer::valueOf);
+    converters.put(String.class, str -> str);
   }
 
   public static Object parser(String value, Class type) {
