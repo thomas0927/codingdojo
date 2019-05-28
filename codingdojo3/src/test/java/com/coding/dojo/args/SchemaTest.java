@@ -11,10 +11,16 @@ public class SchemaTest {
     Assert.assertEquals(schema.getValue(), resultValue);
   }
 
-  @Test
-  public void should_parser_schema_value() {
-    Schema schema = new Schema(Boolean.class, Boolean.FALSE);
-    Assert.assertEquals(schema.getValue(""), Boolean.TRUE);
+  @Test(dataProvider = "parser_schema_value")
+  public void should_parser_schema_value(
+      Class clz, Object defaultValue, String inputValue, Object resultValue) {
+    Schema schema = new Schema(clz, defaultValue);
+    Assert.assertEquals(schema.getValue(inputValue), resultValue);
+  }
+
+  @DataProvider
+  public Object[][] parser_schema_value() {
+    return new Object[][] {{Boolean.class, Boolean.FALSE, "", Boolean.TRUE}};
   }
 
   @DataProvider
