@@ -18,4 +18,9 @@ public class FizzBuzzTest {
       {51, "FizzBuzz"},
     };
   }
+
+  @Test
+  public void should_print_100_fizz_buzz() {
+    Assert.assertEquals(new FizzBuzz().print(100).split(",").length, 100);
+  }
 }
