@@ -16,13 +16,14 @@ public class FizzBuzzRule implements Executable {
 
   @Override
   public String exec(int number) {
-    if (number % 10 == this.in || number / 10 == this.in) {
-        return answer;
-    }
-    if (isDivisible(number)) {
-      return this.answer;
+    if (isContains(number) || isDivisible(number)) {
+      return answer;
     }
     return "";
+  }
+
+  private boolean isContains(int number) {
+    return number % 10 == this.in || number / 10 == this.in;
   }
 
   private boolean isDivisible(int number) {
