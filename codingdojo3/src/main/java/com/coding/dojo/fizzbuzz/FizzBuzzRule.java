@@ -1,5 +1,7 @@
 package com.coding.dojo.fizzbuzz;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class FizzBuzzRule implements Executable {
   private final int in;
   private final String answer;
@@ -19,7 +21,7 @@ public class FizzBuzzRule implements Executable {
     if (isContains(number) || isDivisible(number)) {
       return answer;
     }
-    return "";
+    return StringUtils.EMPTY;
   }
 
   private boolean isContains(int number) {
