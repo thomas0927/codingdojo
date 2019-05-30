@@ -14,6 +14,9 @@ public class Schema<T> {
   }
 
   public T getValue(String value) {
+    if (null == value) {
+      return this.defaultValue;
+    }
     return (T) ValueParser.parser(value, clz);
   }
 }
