@@ -1,15 +1,20 @@
 package com.coding.dojo.fizzbuzz;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-
-import static org.testng.AssertJUnit.assertEquals;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 public class FizzBuzzTest {
+  @Test(dataProvider = "fizz_buzz_answer")
+  public void should_return_fizz_buzz_answer(int number, String expected) {
+    FizzBuzz fizzBuzz = new FizzBuzz();
+    Assert.assertEquals(fizzBuzz.say(number), expected);
+  }
 
-  @ParameterizedTest(name = "should return {1} when given {0}")
-  @CsvSource({"1,1", "3,Fizz", "5,Buzz", "15,FizzBuzz", "13,Fizz", "51,FizzBuzz", "52,Buzz"})
-  public void should_return_correct_answer(Integer number, String answer) {
-    assertEquals(answer, new FizzBuzz().say(number));
+  @DataProvider
+  public Object[][] fizz_buzz_answer() {
+    return new Object[][] {
+      {1, "1"},
+    };
   }
 }

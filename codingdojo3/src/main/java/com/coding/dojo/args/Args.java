@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class Args {
   private final Map<Character, Argument> argsMap;
   private Schemas schemas;
-  private final Argument defaultArgument = new Argument('-', null);
+  public static final Argument DEFAULT_ARG = new Argument('-', null);
 
   public Args(String argsAsText, String schemasAsText) {
     this.schemas = new Schemas(schemasAsText);
@@ -27,6 +27,6 @@ public class Args {
   }
 
   private String getValueOfNullable(Character flag) {
-    return Optional.ofNullable(argsMap.get(flag)).orElse(defaultArgument).getValue();
+    return Optional.ofNullable(argsMap.get(flag)).orElse(DEFAULT_ARG).getValue();
   }
 }
