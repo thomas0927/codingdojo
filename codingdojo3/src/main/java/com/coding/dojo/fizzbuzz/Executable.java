@@ -1,5 +1,5 @@
 package com.coding.dojo.fizzbuzz;
 
 public interface Executable {
-  String exec(int number);
+  String exec(int i);
 }

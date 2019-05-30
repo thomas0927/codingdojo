@@ -1,6 +1,7 @@
 package com.coding.dojo.fizzbuzz;
 
 public class FizzBuzzRule implements Executable {
+
   private final int in;
   private final String answer;
 
@@ -15,18 +16,7 @@ public class FizzBuzzRule implements Executable {
   }
 
   @Override
-  public String exec(int number) {
-    if (isContains(number) || isDivisible(number)) {
-      return this.answer;
-    }
+  public String exec(int i) {
     return "";
-  }
-
-  private boolean isContains(int number) {
-    return number % 10 == this.in || number / 10 == this.in;
-  }
-
-  private boolean isDivisible(int number) {
-    return number % this.in == 0;
   }
 }
