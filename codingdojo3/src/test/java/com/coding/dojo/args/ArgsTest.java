@@ -8,5 +8,6 @@ public class ArgsTest {
   public void should_return_correct_value() {
     Assert.assertEquals(new Args("-l", "l:&").getValue('l'), Boolean.TRUE);
     Assert.assertEquals(new Args("-l -p 8080", "l:& p:@").getValue('p'), 8080);
+    Assert.assertEquals(new Args("-l -p 8080 -d /log", "l:& p:@ d:#").getValue('d'), "/log");
   }
 }
