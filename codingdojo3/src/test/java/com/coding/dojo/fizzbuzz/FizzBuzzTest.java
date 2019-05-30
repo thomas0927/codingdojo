@@ -14,9 +14,7 @@ public class FizzBuzzTest {
   @DataProvider
   public Object[][] fizz_buzz_answer() {
     return new Object[][] {
-      {1, "1"},
-      {3, "Fizz"},
-      {5, "Buzz"},
+      {1, "1"}, {3, "Fizz"}, {5, "Buzz"}, {15, "FizzBuzz"},
     };
   }
 }
