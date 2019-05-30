@@ -16,4 +16,10 @@ public class FizzBuzzTest {
       {1, "1"}, {3, "Fizz"}, {5, "Buzz"}, {15, "FizzBuzz"}, {51, "FizzBuzz"},
     };
   }
+
+  @Test
+  public void should_print_100_fizz_buzz_number() {
+    String[] numbers = new FizzBuzz().print(100);
+    Assert.assertEquals(numbers.length, 100);
+  }
 }
