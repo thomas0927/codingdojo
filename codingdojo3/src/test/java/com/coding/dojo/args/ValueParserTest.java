@@ -8,5 +8,6 @@ public class ValueParserTest {
   public void should_parser_value_by_type() {
     Assert.assertEquals(ValueParser.parser("", Boolean.class), Boolean.TRUE);
     Assert.assertEquals(ValueParser.parser("80", Integer.class), 80);
+    Assert.assertEquals(ValueParser.parser("80", String.class), "80");
   }
 }
