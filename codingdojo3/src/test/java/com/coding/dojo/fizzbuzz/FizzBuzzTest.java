@@ -15,6 +15,7 @@ public class FizzBuzzTest {
   public Object[][] fizz_buzz_answer() {
     return new Object[][] {
       {1, "1"},
+      {3, "Fizz"},
     };
   }
 }
