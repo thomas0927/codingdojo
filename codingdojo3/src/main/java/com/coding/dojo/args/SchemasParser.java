@@ -8,6 +8,8 @@ public class SchemasParser {
 
   static {
     converters.put("&", new Schema(Boolean.class, Boolean.FALSE));
+    converters.put("@", new Schema(Integer.class, 0));
+    converters.put("#", new Schema(String.class, ""));
   }
 
   public static Schema parser(String schemaAsText) {
