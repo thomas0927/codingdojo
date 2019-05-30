@@ -19,8 +19,8 @@ public class FizzBuzzTest {
 
   @Test
   public void should_print_100_fizz_buzz_number() {
-    String[] numbers = new FizzBuzz().print(100);
-    System.out.println(numbers.toString());
-    Assert.assertEquals(numbers.length, 100);
+    String numbers = new FizzBuzz().print(100);
+    System.out.println(numbers);
+    Assert.assertEquals(numbers.split(",").length, 100);
   }
 }

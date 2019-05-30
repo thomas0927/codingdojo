@@ -1,6 +1,7 @@
 package com.coding.dojo.fizzbuzz;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FizzBuzz {
@@ -13,7 +14,7 @@ public class FizzBuzz {
         .orElse(String.valueOf(number));
   }
 
-  public String[] print(int total) {
-    return IntStream.range(1, total + 1).mapToObj(this::say).toArray(String[]::new);
+  public String print(int total) {
+    return IntStream.range(1, total + 1).mapToObj(this::say).collect(Collectors.joining(","));
   }
 }
