@@ -16,7 +16,10 @@ public class FizzBuzzRule implements Executable {
   }
 
   @Override
-  public String exec(int i) {
+  public String exec(int number) {
+    if (number % this.in == 0) {
+        return this.answer;
+    }
     return "";
   }
 }
