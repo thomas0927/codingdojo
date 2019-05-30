@@ -11,6 +11,13 @@ public class FizzBuzzRuleTest {
     Assert.assertEquals(executable.exec(number), expected);
   }
 
+  @Test
+  public void should_return_answer_by_rule5() {
+    Executable executable = FizzBuzzRule.build(5, "Buzz");
+    Assert.assertEquals(executable.exec(5), "Buzz");
+    Assert.assertEquals(executable.exec(4), "");
+  }
+
   @DataProvider
   public Object[][] rule_number() {
     return new Object[][] {
