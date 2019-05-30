@@ -17,6 +17,7 @@ public class FizzBuzzRuleTest {
       {1, ""},
       {3, "Fizz"},
       {13, "Fizz"},
+      {31, "Fizz"},
     };
   }
 }
