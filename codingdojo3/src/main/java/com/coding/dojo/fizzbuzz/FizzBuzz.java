@@ -2,16 +2,16 @@ package com.coding.dojo.fizzbuzz;
 
 public class FizzBuzz {
   public Object say(Integer number) {
-    String result = "";
+    String result1 = "";
     if (number % 3 == 0) {
-      result = "Fizz";
+      result1 = "Fizz";
     }
-    if (!result.isEmpty()) {
-        return result;
-    }
+
+    String result2 = "";
     if (number % 5 == 0) {
-      result = "Buzz";
+      result2 = "Buzz";
     }
+    String result = String.join("", result1, result2);
     if (!result.isEmpty()) {
         return result;
     }
