@@ -21,6 +21,6 @@ public class Anagram {
 
   @Override
   public String toString() {
-    return String.join(" ", this.words.stream().map(Word::toString).collect(Collectors.toList()));
+    return this.words.stream().map(Word::toString).collect(Collectors.joining(" "));
   }
 }
