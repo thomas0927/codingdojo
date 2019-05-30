@@ -14,4 +14,9 @@ public class FizzBuzzTest {
   public Object[][] fizz_buzz_answer() {
     return new Object[][] {{1, "1"}, {3, "Fizz"}, {5, "Buzz"}, {15, "FizzBuzz"}, {51, "FizzBuzz"}};
   }
+
+  @Test
+  public void should_print_100_fizz_buzz_number() {
+    Assert.assertEquals(new FizzBuzz().print(100).split(",").length, 100);
+  }
 }
