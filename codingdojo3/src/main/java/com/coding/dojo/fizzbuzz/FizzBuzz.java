@@ -12,12 +12,20 @@ public class FizzBuzz {
   }
 
   private String getString(Integer number, int specialNumber, String answer) {
-    if (number / 10 == specialNumber || number % 10 == specialNumber) {
+    if (isContains(number, specialNumber)) {
       return answer;
     }
-    if (number % specialNumber == 0) {
+    if (isDivisible(number % specialNumber, 0)) {
       return answer;
     }
     return "";
+  }
+
+  private boolean isDivisible(int i, int i2) {
+    return i == i2;
+  }
+
+  private boolean isContains(Integer number, int specialNumber) {
+    return isDivisible(number / 10, specialNumber) || isDivisible(number % 10, specialNumber);
   }
 }
