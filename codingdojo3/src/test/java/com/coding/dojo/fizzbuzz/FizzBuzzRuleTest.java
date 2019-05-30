@@ -8,8 +8,7 @@ public class FizzBuzzRuleTest {
   @DataProvider
   public Object[][] fizz_buzz_rule() {
     return new Object[][] {
-      {1, ""},
-      {3, "Fizz"},
+      {1, ""}, {3, "Fizz"}, {5, ""}, {13, "Fizz"},
     };
   }
 
