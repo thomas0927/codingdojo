@@ -15,7 +15,7 @@ public class FizzBuzzRuleTest {
   public Object[][] rule_number() {
     return new Object[][] {
       {1, ""},
-      {1, ""},
+      {3, "Fizz"},
     };
   }
 }
