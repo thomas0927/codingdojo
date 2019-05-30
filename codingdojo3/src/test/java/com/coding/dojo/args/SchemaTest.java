@@ -8,5 +8,6 @@ public class SchemaTest {
   public void should_get_default_value_by_schema() {
     Assert.assertEquals(new Schema(Boolean.class, Boolean.FALSE).getValue(), Boolean.FALSE);
     Assert.assertEquals(new Schema(Integer.class, 0).getValue(), 0);
+    Assert.assertEquals(new Schema(String.class, "").getValue("/log"), "/log");
   }
 }

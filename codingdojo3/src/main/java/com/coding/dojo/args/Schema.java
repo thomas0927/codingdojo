@@ -12,4 +12,8 @@ public class Schema<T> {
   public T getValue() {
     return this.defaultValue;
   }
+
+  public T getValue(String value) {
+    return (T) ValueParser.parser(value, clz);
+  }
 }
