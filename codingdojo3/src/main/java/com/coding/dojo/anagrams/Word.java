@@ -34,4 +34,8 @@ public class Word {
     Arrays.sort(bytes);
     return Arrays.hashCode(bytes);
   }
+
+  public int length() {
+    return word.length();
+  }
 }
