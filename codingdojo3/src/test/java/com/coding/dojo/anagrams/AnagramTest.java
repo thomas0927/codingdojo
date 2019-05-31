@@ -41,4 +41,10 @@ public class AnagramTest {
   public Object[][] anagram_new_number_words() {
     return new Object[][] {{Arrays.asList(new Word("abc"), new Word("cba")), 2}};
   }
+
+  @Test
+  public void should_return_count_of_words() {
+    Anagram anagram = new Anagram(Arrays.asList(new Word("ab"), new Word("ba")));
+    Assert.assertEquals(anagram.count(), 2);
+  }
 }

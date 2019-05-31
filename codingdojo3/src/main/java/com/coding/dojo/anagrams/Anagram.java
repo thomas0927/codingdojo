@@ -23,4 +23,8 @@ public class Anagram {
   public String toString() {
     return this.words.stream().map(Word::toString).collect(Collectors.joining(" "));
   }
+
+  public int count() {
+    return words.size();
+  }
 }
