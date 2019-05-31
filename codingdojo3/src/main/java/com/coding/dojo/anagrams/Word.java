@@ -27,4 +27,11 @@ public class Word {
   public String toString() {
     return word;
   }
+
+  @Override
+  public int hashCode() {
+    byte[] bytes = this.word.getBytes();
+    Arrays.sort(bytes);
+    return Arrays.hashCode(bytes);
+  }
 }
