@@ -4,93 +4,46 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 public class AnagramsTest {
-
-  @Test(dataProvider = "find_longest_words")
-  public void should_return_longest_words_from_anagrams(List<Word> words, String expected) {
-    Anagrams anagrams = new Anagrams();
-    anagrams.guessWords(words);
-    Assert.assertEquals(anagrams.longestWords(), expected);
-  }
-
-  @Test(dataProvider = "find_most_words")
-  public void should_return_most_words_from_anagrams(List<Word> words, String expected) {
-    Anagrams anagrams = new Anagrams();
-    anagrams.guessWords(words);
-    Assert.assertEquals(anagrams.mostWords(), expected);
-  }
-
-  @Test(dataProvider = "longest_anagram_from_file_mini")
-  public void can_get_longest_anagram_from_file(String fileName, String expected) {
-
-    Anagrams anagrams = new Anagrams();
-    anagrams.guessWords(fileName);
-    Assert.assertEquals(anagrams.longestWords(), expected);
-  }
-
-  @Test(dataProvider = "most_words_anagram_from_file_mini")
-  public void can_get_most_words_anagram_from_file(String fileName, String expected) {
-
-    Anagrams anagrams = new Anagrams();
-    anagrams.guessWords(fileName);
-    Assert.assertEquals(anagrams.mostWords(), expected);
-  }
-
-  @Test(dataProvider = "word_list_from_file")
-  public void find_longest_from_word_list(String fileName) {
-    Anagrams anagrams = new Anagrams();
-    anagrams.guessWords(fileName);
-    System.out.println(anagrams.mostWords());
-    System.out.println(anagrams.longestWords());
+  @Test(dataProvider = "words_longest")
+  public void should_find_longest_anagram_from_word(List<Word> words, String longestWord) {
+    Anagrams anagrams = new Anagrams(words);
+    Assert.assertEquals(anagrams.longestWord(), longestWord);
   }
 
   @DataProvider
-  public Object[][] word_list_from_file() {
-    return new Object[][] {{"/wordlist.txt"}};
+  public Object[][] words_longest() {
+    return new Object[][] {{Arrays.asList(new Word("abc"), new Word("ab"), new Word("ba")), "abc"}};
   }
 
   @DataProvider
-  public Object[][] longest_anagram_from_file_mini() {
-    return new Object[][] {{"/wordlist-mini.txt", "ACTH's"}};
-  }
-
-  @DataProvider
-  public Object[][] most_words_anagram_from_file_mini() {
-    return new Object[][] {{"/wordlist-mini.txt", "AA's s'AA As'A"}};
-  }
-
-  @DataProvider
-  public Object[][] find_most_words() {
+  public Object[][] words_most() {
     return new Object[][] {
-      {
-        Arrays.asList(
-            new Word("abc"),
-            new Word("bca"),
-            new Word("cab"),
-            new Word("ba"),
-            new Word("asdfasdrropeutxpoiuqqrcbc"),
-            new Word("cb")),
-        "abc bca cab"
-      }
+      {Arrays.asList(new Word("abc"), new Word("ab"), new Word("ba")), "ab ba"}
     };
   }
 
-  @DataProvider
-  public Object[][] find_longest_words() {
-    return new Object[][] {
-      {
-        Arrays.asList(
-            new Word("acb"),
-            new Word("cab"),
-            new Word("cx"),
-            new Word("ba"),
-            new Word("abc"),
-            new Word("cb")),
-        "acb cab abc"
-      }
-    };
+  @Test(dataProvider = "words_most")
+  public void should_find_mostWords_anagram_from_word(List<Word> words, String mostWords) {
+    Anagrams anagrams = new Anagrams(words);
+    Assert.assertEquals(anagrams.mostWords(), mostWords);
+  }
+
+  @Test
+  public void should_find_longest_word_from_file() throws IOException {
+    Anagrams anagrams = new Anagrams();
+    anagrams.guessAnagramFromFile("/wordlist-mini.txt");
+    Assert.assertEquals(anagrams.longestWord(), "ACTH's");
+  }
+
+  @Test
+  public void should_find_most_words_from_file() throws IOException {
+    Anagrams anagrams = new Anagrams();
+    anagrams.guessAnagramFromFile("/wordlist-mini.txt");
+    Assert.assertEquals(anagrams.mostWords(), "AA's s'AA As'A");
   }
 }
