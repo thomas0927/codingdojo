@@ -8,43 +8,26 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AnagramTest {
-
-  @Test(dataProvider = "anagram_new_word_length")
-  public void should_return_new_length_after_guess_a_new_word(List<Word> words, Integer expected) {
-    Anagram anagram = new Anagram(words);
-    Assert.assertEquals(anagram.length(), expected);
-  }
-
-  @Test(dataProvider = "anagram_new_number_words")
-  public void should_return_new_number_words(List<Word> words, Integer expected) {
-    Anagram anagram = new Anagram(words);
-    Assert.assertEquals(anagram.numberOfWords(), expected);
-  }
-
-  @Test(dataProvider = "anagram_word_list")
-  public void can_return_words_text(List<Word> words, String expected) {
-    Anagram anagram = new Anagram(words);
-    Assert.assertEquals(anagram.toString(), expected);
-  }
-
-  @DataProvider
-  public Object[][] anagram_word_list() {
-    return new Object[][] {{Arrays.asList(new Word("abc"), new Word("cba")), "abc cba"}};
-  }
-
-  @DataProvider
-  public Object[][] anagram_new_word_length() {
-    return new Object[][] {{Arrays.asList(new Word("abc"), new Word("cba")), 3}};
-  }
-
-  @DataProvider
-  public Object[][] anagram_new_number_words() {
-    return new Object[][] {{Arrays.asList(new Word("abc"), new Word("cba")), 2}};
+  @Test
+  public void should_return_length_after_load_words() {
+    Anagram anagram = new Anagram(Arrays.asList(new Word("abc"), new Word("cba")));
+    Assert.assertEquals(anagram.length(), 3);
   }
 
   @Test
   public void should_return_count_of_words() {
     Anagram anagram = new Anagram(Arrays.asList(new Word("ab"), new Word("ba")));
     Assert.assertEquals(anagram.count(), 2);
+  }
+
+  @Test(dataProvider = "anagram_all_word")
+  public void should_return_anagram_all_word(List<Word> words, String ex) {
+    Anagram anagram = new Anagram(words);
+    Assert.assertEquals(anagram.toString(), ex);
+  }
+
+  @DataProvider
+  public Object[][] anagram_all_word() {
+    return new Object[][] {{Arrays.asList(new Word("ab"), new Word("ba")), "ab ba"}};
   }
 }

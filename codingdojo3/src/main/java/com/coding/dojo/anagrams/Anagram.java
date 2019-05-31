@@ -1,30 +1,26 @@
 package com.coding.dojo.anagrams;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.joining;
 
 public class Anagram {
-  private List<Word> words;
+  private final List<Word> words;
 
   public Anagram(List<Word> words) {
-
     this.words = words;
   }
 
-  public Integer length() {
-    return words.get(0).toString().length();
+  public int length() {
+    return words.get(0).length();
   }
 
-  public Integer numberOfWords() {
+  public int count() {
     return words.size();
   }
 
   @Override
   public String toString() {
-    return this.words.stream().map(Word::toString).collect(Collectors.joining(" "));
-  }
-
-  public int count() {
-    return words.size();
+    return words.stream().map(Word::toString).collect(joining(" "));
   }
 }

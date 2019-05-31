@@ -3,29 +3,11 @@ package com.coding.dojo.anagrams;
 import java.util.Arrays;
 
 public class Word {
-  private String word;
-  private int hashNum;
+  private final String word;
 
   public Word(String word) {
 
     this.word = word;
-    calcHashCode();
-  }
-
-  @Override
-  public int hashCode() {
-    return this.hashNum;
-  }
-
-  private void calcHashCode() {
-    byte[] bytes = this.word.getBytes();
-    Arrays.sort(bytes);
-    this.hashNum = Arrays.hashCode(bytes);
-  }
-
-  @Override
-  public String toString() {
-    return word;
   }
 
   @Override
@@ -37,5 +19,10 @@ public class Word {
 
   public int length() {
     return word.length();
+  }
+
+  @Override
+  public String toString() {
+    return this.word;
   }
 }
