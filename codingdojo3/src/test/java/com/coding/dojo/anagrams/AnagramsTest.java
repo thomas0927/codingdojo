@@ -46,4 +46,12 @@ public class AnagramsTest {
     anagrams.guessAnagramFromFile("/wordlist-mini.txt");
     Assert.assertEquals(anagrams.mostWords(), "AA's s'AA As'A");
   }
+
+  @Test
+  public void get_game_result() throws IOException {
+    Anagrams anagrams = new Anagrams();
+    anagrams.guessAnagramFromFile("/wordlist.txt");
+    System.out.println(anagrams.longestWord());
+    System.out.println(anagrams.mostWords());
+  }
 }
