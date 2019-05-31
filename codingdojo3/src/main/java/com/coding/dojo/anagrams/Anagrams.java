@@ -45,4 +45,8 @@ public class Anagrams {
     BufferedReader br = Files.newBufferedReader(file);
     return br.lines().map(Word::new).collect(Collectors.toList());
   }
+
+  public String longestWord() {
+    return this.anagrams.stream().max(Comparator.comparing(Anagram::length)).get().toString();
+  }
 }
